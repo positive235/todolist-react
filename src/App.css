@@ -1,14 +1,81 @@
 .App {
   text-align: center;
+  margin: 0 auto;
 }
 
 .appTitle {
-  color: red;
+  color: purple;
+  margin: 50px auto;
+  font-weight: bold;
 }
 
 .addToDoBar {
-  max-width: 450px;
+  max-width: 500px;
   height: 35px;
   line-height: 30px;
   font-size: 28px;
+  margin-bottom: 30px;
 }
+
+.addButton {
+  height: 40px;
+  font-size: 28px;
+  font-weight: bolder;
+  margin-right: 10px;
+  background-color: blueviolet;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.isChecked {
+  text-decoration: line-through;
+  color: gray;
+  width: 450px;
+  height: 40px;
+  font-size:28px;
+  font-weight: bold;
+}
+
+.notChecked {
+  color: black;
+  width: 450px;
+  height: 40px;
+  font-size:28px;
+  font-weight: bold;
+}
+
+.toDoOuterBlock {
+  height: 50px;
+  margin: 0 auto;
+  width: 450px;
+}
+
+.toDoBlock {
+  background-color: gold;
+  border-radius: 5px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.toDoButton {
+  height: 40px;
+  font-size:28px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.checkButton {
+  background-color: green;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.deleteButton {
+  background-color: orange;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
