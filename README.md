@@ -1,3 +1,12 @@
+# To-Do List in React JS
+
+To-Do List in React JS. (IN PROGRESS)
+
+[v] ADD TASKS TO THE LIST
+[v] MARK COMPLETED TASKS
+[v] DELETE TASKS
+[ ] STORE THE LIST TO LOCAL STORAGE (IN PROGRESS)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
