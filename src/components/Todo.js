@@ -11,7 +11,6 @@ const Todo = ({ addedTasks, setAddedTasks })  => {
   const deleteToDo = (e) => {
       e.preventDefault();
       addedTasks.splice(e.target.name, 1);
-      console.log(addedTasks);
       setAddedTasks(prev => [...prev]);
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todo from './Todo';
 
 const TodoList = () => {
@@ -6,6 +6,16 @@ const TodoList = () => {
   const [newTask, setNewTask] = useState('');
   const [addedTasks, setAddedTasks] = useState([]);
   
+  useEffect(() => {
+    const storedToDo = JSON.parse(localStorage.getItem('toDoLists'));
+    if (storedToDo) setAddedTasks(storedToDo);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('toDoLists', JSON.stringify(addedTasks));
+  }, [addedTasks]);
+
+
   const newToDo = (e) => {
     setNewTask(e.target.value);
   };
