@@ -78,3 +78,36 @@
   color: whitesmoke;
   border-radius: 5px;
 }
+
+.editButton {
+  background-color: blue;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.doneButton {
+  height: 40px;
+  font-size:16px;
+  font-weight: bold;
+  margin: 5px;
+  background-color: rebeccapurple;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.cancelButton {
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  background-color: red;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.editToDoBar {
+  max-width: 500px;
+  height: 35px;
+  line-height: 30px;
+  font-size: 20px;
+}

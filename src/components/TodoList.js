@@ -23,7 +23,7 @@ const TodoList = () => {
   const addToDo = (e) => {
     e.preventDefault();
     if (newTask !== "") {
-        setAddedTasks(prev => [...prev, {name: newTask, checked: false}]);
+        setAddedTasks(prev => [...prev, {name: newTask, checked: false, edited: false}]);
     }
     setNewTask('');
   };
