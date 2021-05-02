@@ -6,6 +6,7 @@ To-Do List in React JS. (IN PROGRESS)
 - [x] MARK COMPLETED TASKS
 - [x] DELETE TASKS
 - [x] STORE THE LIST TO LOCAL STORAGE / GET THE LIST FROM LOCAL STORAGE
+- [x] EDIT TASKS
 
 # Getting Started with Create React App
 
