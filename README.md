@@ -1,12 +1,16 @@
 # To-Do List in React JS
 
-To-Do List in React JS. (IN PROGRESS)
+To-Do List in React JS. 
 
 - [x] ADD TASKS TO THE LIST
 - [x] MARK COMPLETED TASKS
 - [x] DELETE TASKS
 - [x] STORE THE LIST TO LOCAL STORAGE / GET THE LIST FROM LOCAL STORAGE
 - [x] EDIT TASKS
+
+# Where To Try
+
+https://positive235.github.io/todolist-react/
 
 # Getting Started with Create React App
 
