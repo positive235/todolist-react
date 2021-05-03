@@ -9,19 +9,24 @@
   font-weight: bold;
 }
 
+.addBarButtonStyle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .addToDoBar {
-  max-width: 500px;
   height: 35px;
   line-height: 30px;
   font-size: 28px;
-  margin-bottom: 30px;
 }
 
 .addButton {
   height: 40px;
   font-size: 28px;
   font-weight: bolder;
-  margin-right: 10px;
+  margin-left: 5px;
   background-color: blueviolet;
   color: whitesmoke;
   border-radius: 5px;
@@ -30,24 +35,25 @@
 .isChecked {
   text-decoration: line-through;
   color: gray;
-  width: 450px;
+  min-width: 250px;
   height: 40px;
-  font-size:28px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .notChecked {
   color: black;
-  width: 450px;
+  min-width: 250px;
   height: 40px;
-  font-size:28px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .toDoOuterBlock {
-  height: 50px;
   margin: 0 auto;
-  width: 450px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
 }
 
 .toDoBlock {
@@ -62,7 +68,7 @@
 
 .toDoButton {
   height: 40px;
-  font-size:28px;
+  font-size: 28px;
   font-weight: bold;
   margin: 5px;
 }
@@ -87,8 +93,7 @@
 
 .doneButton {
   height: 40px;
-  font-size:16px;
-  font-weight: bold;
+  font-size: 16px;
   margin: 5px;
   background-color: rebeccapurple;
   color: whitesmoke;
@@ -98,7 +103,6 @@
 .cancelButton {
   height: 40px;
   font-size: 16px;
-  font-weight: bold;
   margin: 5px;
   background-color: red;
   color: whitesmoke;
@@ -106,8 +110,60 @@
 }
 
 .editToDoBar {
-  max-width: 500px;
   height: 35px;
   line-height: 30px;
-  font-size: 20px;
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 425px) {
+  .addToDoBar {
+    height: 28px;
+    line-height: 25px;
+    font-size: 20px;
+  }
+  
+  .addButton {
+    height: 28px;
+    font-size: 20px;
+  }
+  
+  .isChecked {
+    height: 30px;
+    font-size: 20px;
+  }
+  
+  .notChecked {
+    height: 30px;
+    font-size: 20px;
+  }
+  
+  .toDoButton {
+    height: 28px;
+    font-size: 20px;
+  }
+  
+  .doneButton {
+    height: 28px;
+    font-size: 16px;
+  }
+  
+  .cancelButton {
+    height: 28px;
+    font-size: 16px;
+  }
+  
+  .editToDoBar {
+    height: 28px;
+    line-height: 25px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .editToDoBar {
+    height: 25px;
+    line-height: 20px;
+    font-size: 16px;
+  }
 }

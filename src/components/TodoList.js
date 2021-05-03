@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Todo from './Todo';
 
 const TodoList = () => {
@@ -31,8 +33,10 @@ const TodoList = () => {
   return (
     <div>
       <form>
-        <button onClick={addToDo} className="addButton"> + </button>
-        <input value={newTask} onChange={newToDo} type="text" className="addToDoBar" placeholder="Add To-Do" />
+        <div className="addBarButtonStyle">
+          <input value={newTask} onChange={newToDo} type="text" className="addToDoBar" placeholder="Add To-Do" />
+          <button onClick={addToDo} className="addButton"><FontAwesomeIcon icon={faPlus} /></button>
+        </div>
         <Todo addedTasks={addedTasks} setAddedTasks={setAddedTasks} />
       </form>
     </div>
