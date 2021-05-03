@@ -131,26 +131,36 @@
   .isChecked {
     height: 30px;
     font-size: 20px;
+    min-width: 200px;
   }
   
   .notChecked {
     height: 30px;
     font-size: 20px;
+    min-width: 200px;
   }
   
+  .toDoBlock {
+    margin: 8px auto;
+    height: 40px;
+  }
+
   .toDoButton {
     height: 28px;
     font-size: 20px;
+    margin: 2px;
   }
   
   .doneButton {
     height: 28px;
     font-size: 16px;
+    margin: 2px;
   }
   
   .cancelButton {
     height: 28px;
     font-size: 16px;
+    margin: 2px;
   }
   
   .editToDoBar {
@@ -160,10 +170,53 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+
+  .isChecked {
+    height: 25px;
+    font-size: 16px;
+    min-width: 170px;
+  }
+  
+  .notChecked {
+    height: 25px;
+    font-size: 16px;
+    min-width: 170px;
+  }
+  
+  .toDoBlock {
+    margin: 5px auto;
+    height: 30px;
+  }
+
+  .toDoButton {
+    height: 25px;
+    font-size: 16px;
+    margin: 2px;
+  }
+  
+  .doneButton {
+    height: 25px;
+    font-size: 16px;
+    margin: 2px;
+  }
+  
+  .cancelButton {
+    height: 25px;
+    font-size: 16px;
+    margin: 2px;
+  }
+  
+  .editToDoBar {
+    height: 20px;
+    line-height: 18px;
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 280px) {
   .editToDoBar {
-    height: 25px;
-    line-height: 20px;
+    height: 20px;
+    line-height: 18px;
     font-size: 16px;
   }
 }
