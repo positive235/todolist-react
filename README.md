@@ -2,11 +2,12 @@
 
 To-Do List in React JS. 
 
-- [x] ADD TASKS TO THE LIST
-- [x] MARK COMPLETED TASKS
-- [x] DELETE TASKS
-- [x] STORE THE LIST TO LOCAL STORAGE / GET THE LIST FROM LOCAL STORAGE
-- [x] EDIT TASKS
+- [x] Add Tasks to the list
+- [x] Mark Completed Tasks
+- [x] Delete Tasks
+- [x] Store the list to Local Storage / Get the list from Local Storage
+- [x] Edit Tasks
+- [x] Filter Tasks with All/Active/Done Buttons
 
 # Where To Try
 
