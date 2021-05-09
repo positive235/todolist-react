@@ -2,54 +2,82 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrashAlt, faEdit, faWindowClose, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Todo = ({ addedTasks, setAddedTasks })  => {
+const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  => {
 
   const [editedTask, setEditedTask] = useState({});
+  
+  const filterToDo = (e) => {
+    e.preventDefault();
+    switch (e.target.name) {
+      case "all":
+        setFilteredTasks(addedTasks);
+        break;
+      case "active":
+        setFilteredTasks(addedTasks.filter(task => task.checked === false));
+        break;
+      case "done":
+        setFilteredTasks(addedTasks.filter(task => task.checked === true));
+        break;
+      default:
+        setFilteredTasks(addedTasks.filter(task => task.checked === false));
+        break;
+    }
+  }
 
   const isCheckedToDo = (e) => {
     e.preventDefault();
-    addedTasks[e.currentTarget.name].checked = !addedTasks[e.currentTarget.name].checked;
+    addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].checked = !addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].checked
     setAddedTasks(prev => [...prev]);
+    setFilteredTasks(addedTasks.filter(task => task.checked === false));
   };
 
   const editToDo = (e) => {
     e.preventDefault();
-    addedTasks[e.currentTarget.name].edited = true;
+    addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = true;
     setAddedTasks(prev => [...prev]);
+    setFilteredTasks(addedTasks);
   }
 
   const handleEdit = (e) => {
     e.preventDefault();
-    setEditedTask({"name":e.currentTarget.value,"checked":false,"edited":false});
+    const editChecked = addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].checked;
+    setEditedTask({name: e.currentTarget.value, checked: editChecked, edited: false, id: Number(e.currentTarget.name)});
   }
 
   const handleDone = (e) => {
     e.preventDefault();
-    addedTasks.splice(e.currentTarget.name, 1, editedTask);
+    addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].name = editedTask.name;
+    addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = editedTask.edited;
     setAddedTasks(prev => [...prev]);
+    setFilteredTasks(addedTasks);
     setEditedTask({});
   }
 
   const handleCancel = (e) => {
     e.preventDefault();
-    addedTasks[e.currentTarget.name].edited = false;
+    addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = false;
     setAddedTasks(prev => [...prev]);
+    setFilteredTasks(addedTasks.filter(task => task.checked === false));
   }
 
   const deleteToDo = (e) => {
       e.preventDefault();
-      addedTasks.splice(e.currentTarget.name, 1);
-      setAddedTasks(prev => [...prev]);
+      addedTasks = addedTasks.filter(task => task.id !== Number(e.currentTarget.name));
+      setAddedTasks(addedTasks);
+      setFilteredTasks(addedTasks.filter(task => task.checked === false));
   };
 
   return (
     <div className="toDoOuterBlock">
-      {addedTasks.map((addedTask, index) => (
+      <div className="filterButtons">
+        <button className="allButton" name="all" onClick={filterToDo}>All</button><button className="activeButton" name="active" onClick={filterToDo}>Active</button><button className="completedButton" name="done" onClick={filterToDo}>Done</button>
+      </div>
+      {filteredTasks.map((task, index) => (
           <div className="toDoBlock">
-            {addedTask.edited ? (<div></div>) : (<button className="toDoButton checkButton" onClick={isCheckedToDo} name={index}><FontAwesomeIcon icon={faCheck} /></button>)}
-            {addedTask.edited ? (<input type="text" className="editToDoBar" name={index} placeholder={addedTask.name} onChange={handleEdit}/>) : (<h3 className={addedTask.checked ? "isChecked" : "notChecked"}>{addedTask.name}</h3>)}
-            {addedTask.edited ? (<div></div>) : (<button className="toDoButton deleteButton" name={index} onClick={deleteToDo}><FontAwesomeIcon name={index} icon={faTrashAlt} /></button>)}
-            {addedTask.edited ? (<div><button className="doneButton" name={index} onClick={handleDone}><FontAwesomeIcon icon={faCheckCircle} /></button><button className="cancelButton" name={index} onClick={handleCancel}><FontAwesomeIcon name={index} icon={faWindowClose} /></button></div>) : (<button className="toDoButton editButton" name={index} onClick={editToDo}><FontAwesomeIcon name={index} icon={faEdit} /></button>)}
+            {task.edited ? (<div></div>) : (<button className="toDoButton checkButton" onClick={isCheckedToDo} name={task.id}><FontAwesomeIcon icon={faCheck} /></button>)}
+            {task.edited ? (<input type="text" className="editToDoBar" name={task.id} placeholder={task.name} onChange={handleEdit}/>) : (<h3 className={task.checked ? "isChecked" : "notChecked"}>{task.name}</h3>)}
+            {task.edited ? (<div></div>) : (<button className="toDoButton deleteButton" name={task.id} id={index} onClick={deleteToDo}><FontAwesomeIcon name={task.id} icon={faTrashAlt} /></button>)}
+            {task.edited ? (<div><button className="doneButton" name={task.id} onClick={handleDone}><FontAwesomeIcon icon={faCheckCircle} /></button><button className="cancelButton" name={task.id} onClick={handleCancel}><FontAwesomeIcon name={task.id} icon={faWindowClose} /></button></div>) : (<button className="toDoButton editButton" name={task.id} onClick={editToDo}><FontAwesomeIcon name={task.id} icon={faEdit} /></button>)}
           </div>
       ))}
     </div>

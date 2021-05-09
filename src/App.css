@@ -116,6 +116,43 @@
   margin-left: 5px;
 }
 
+.filterButtons {
+  margin-top: 10px;
+}
+
+.allButton,
+.activeButton,
+.completedButton {
+  font-size: 20px;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: rgb(194, 191, 191);
+}
+
+.allButton:hover, 
+.activeButton:hover,
+.completedButton:hover {
+  background-color: white;
+}
+
+.allButton {
+  border-radius: 5px 0 0 5px;
+  color: green;
+  margin-right: -1px;
+}
+
+.activeButton {
+  color: brown;
+}
+
+.completedButton {
+  margin-left: -1px;
+  border-radius: 0 5px 5px 0;
+  color: blue;
+}
+
 @media screen and (max-width: 425px) {
   .addToDoBar {
     height: 28px;
@@ -212,7 +249,15 @@
     line-height: 18px;
     font-size: 16px;
   }
+
+  .allButton,
+  .activeButton,
+  .completedButton {
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
+
 @media screen and (max-width: 280px) {
   .editToDoBar {
     height: 20px;
