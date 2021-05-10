@@ -4,11 +4,17 @@ import { faCheck, faTrashAlt, faEdit, faWindowClose, faCheckCircle } from '@fort
 
 const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  => {
 
+  const [filterName, setFilterName] = useState('');
   const [editedTask, setEditedTask] = useState({});
   
   const filterToDo = (e) => {
     e.preventDefault();
-    switch (e.target.name) {
+    setFilterName(e.target.name);
+    filterFunction(e.target.name);
+  }
+
+  const filterFunction = (filterName) => {
+    switch (filterName) {
       case "all":
         setFilteredTasks(addedTasks);
         break;
@@ -28,14 +34,14 @@ const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  =
     e.preventDefault();
     addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].checked = !addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].checked
     setAddedTasks(prev => [...prev]);
-    setFilteredTasks(addedTasks.filter(task => task.checked === false));
+    filterFunction(filterName);
   };
 
   const editToDo = (e) => {
     e.preventDefault();
     addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = true;
     setAddedTasks(prev => [...prev]);
-    setFilteredTasks(addedTasks);
+    filterFunction(filterName);
   }
 
   const handleEdit = (e) => {
@@ -49,7 +55,7 @@ const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  =
     addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].name = editedTask.name;
     addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = editedTask.edited;
     setAddedTasks(prev => [...prev]);
-    setFilteredTasks(addedTasks);
+    filterFunction(filterName);
     setEditedTask({});
   }
 
@@ -57,14 +63,14 @@ const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  =
     e.preventDefault();
     addedTasks.filter(task => task.id === Number(e.currentTarget.name))[0].edited = false;
     setAddedTasks(prev => [...prev]);
-    setFilteredTasks(addedTasks.filter(task => task.checked === false));
+    filterFunction(filterName);
   }
 
   const deleteToDo = (e) => {
       e.preventDefault();
       addedTasks = addedTasks.filter(task => task.id !== Number(e.currentTarget.name));
       setAddedTasks(addedTasks);
-      setFilteredTasks(addedTasks.filter(task => task.checked === false));
+      filterFunction(filterName);
   };
 
   return (
