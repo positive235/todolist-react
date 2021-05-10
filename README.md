@@ -8,6 +8,7 @@ To-Do List in React JS.
 - [x] Store the list to Local Storage / Get the list from Local Storage
 - [x] Edit Tasks
 - [x] Filter Tasks with All/Active/Done Buttons
+- [x] Show Today's Date (day,month,date,year) on the top 
 
 # Where To Try
 
