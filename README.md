@@ -9,6 +9,9 @@ To-Do List in React JS.
 - [x] Edit Tasks
 - [x] Filter Tasks with All/Active/Done Buttons
 - [x] Show Today's Date (day,month,date,year) on the top 
+- [x] Drag and Drop Tasks
+
+** Credit: React beautiful dnd Documentation examples - https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/about/examples.md
 
 # Where To Try
 
