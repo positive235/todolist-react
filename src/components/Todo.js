@@ -104,7 +104,15 @@ const Todo = ({ addedTasks, setAddedTasks, filteredTasks, setFilteredTasks })  =
     if (!e.destination) {
       return;
     }
-    addedTasks = reorder(addedTasks, e.source.index, e.destination.index);
+    
+    const checkedFalse = addedTasks.filter(task => task.checked === false);
+    const checkedFalseLen = checkedFalse.length;
+
+    if (e.destination.index >= checkedFalseLen) {
+      addedTasks = reorder(addedTasks, e.source.index, checkedFalseLen - 1);
+    } else {
+      addedTasks = reorder(addedTasks, e.source.index, e.destination.index);
+    }
     setAddedTasks(addedTasks);
     filterFunction(filterName);
   }
